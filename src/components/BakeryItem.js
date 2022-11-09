@@ -1,9 +1,10 @@
 // TODO: create a component that displays a single bakery item
 
 import React from 'react';
+import { useState } from "react";
+import AddI from './AddI';
 import {
     Card,
-    CardActionArea,
     CardMedia,
     CardContent,
     Typography,
@@ -11,31 +12,28 @@ import {
     Button,
   } from '@mui/material';
 
-export default function BakeryItem(item) {
+/* Card template from mui/material */
+export default function BakeryItem(props) {
     return (
-        <Card sx={{ maxWidth: 500}}>
-          <CardActionArea>
+        <Card sx={{ maxWidth: 400}}>
             <CardMedia
               component="img"
-              height="200"
-              image={item.image}
+              height="300"
+              image={props.item.image}
             />
             <CardContent>
               <Typography gutterBottom variant="h5" component="div">
-                {item.name}
+                {props.item.name}
+                <Typography variant="h6" color="text.primary">
+                ${props.item.price}
+              </Typography>
               </Typography>
               <Typography variant="body2" color="text.secondary">
-                {item.description}
-              </Typography>
-              <Typography variant="body2" color="text.secondary">
-                {item.price}
+                {props.item.description}
               </Typography>
             </CardContent>
-          </CardActionArea>
           <CardActions>
-            <Button size="large" color="primary">
-              ADD TO CART
-            </Button>
+            <AddI clickFtn={props.clickFtn} item={props.item}/>
           </CardActions>
         </Card>
       );

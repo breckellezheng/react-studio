@@ -1,9 +1,16 @@
 /* Add styling for your page here */
 
 .App {
+    display: grid;
+    grid-template-columns: 0.5fr 0.5fr 0.5fr;
+    padding: 60px;
     margin-right: 5rem;
 }
 
+.new-line {
+    white-space: pre-line;
+  }
+
 .BakeryItem {
-    margin-right: 5rem;
+    padding: 1px;
 }
