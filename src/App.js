@@ -1,4 +1,5 @@
 import "./App.css";
+import BakeryItem from './components/BakeryItem.js';
 import { useState } from "react";
 import bakeryData from "./assets/bakery-data.json";
 
@@ -17,7 +18,7 @@ function App() {
       <h1>My Bakery</h1> {/* TODO: personalize your bakery (if you want) */}
 
       {bakeryData.map((item, index) => ( // TODO: map bakeryData to BakeryItem components
-        <p>Bakery Item {index}</p> // replace with BakeryItem component
+        <BakeryItem key={item}/> // replace with BakeryItem component
       ))}
 
       <div>
