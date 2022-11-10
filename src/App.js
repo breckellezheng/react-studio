@@ -25,6 +25,8 @@ function App() {
     setIndex(index + 1);
     setCart(newCart);
     setName(item.name);
+    console.log(name);
+    console.log(cart)
   }
 
   return (
