@@ -1,12 +1,8 @@
 import "./App.css";
 import BakeryItem from './components/BakeryItem.js';
 import AddI from './components/AddI';
-import Cart from './components/Cart';
 import { useState } from "react";
 import bakeryData from "./assets/bakery-data.json";
-import {
-  ListItemText,
-} from '@mui/material';
 
 /* ####### DO NOT TOUCH -- this makes the image URLs work ####### */
 bakeryData.forEach((item) => {
@@ -19,18 +15,17 @@ function App() {
   /* add your cart state code here */
 
   const [index, setIndex] = useState(0);
-  const [count, setCount] = useState(0);
   const [total, setTotal] = useState(0);
-  const [name, setName] = useState(0);
-  const [cart, setCart] = useState({});
+  const [cart, setCart] = useState([]);
+  const [name, setName] = useState("");
 
   function handleClick(item) {
-    setCount(count + 1);
+    const newCart = cart.concat({name});
     setTotal(total + item.price);
     setIndex(index + 1);
-    setName(item.name);
+    setCart(newCart);
+    setName("");
   }
-
 
   return (
     <div className="App">
@@ -46,9 +41,17 @@ function App() {
       <div>
         <h1>Cart</h1>
         {/* TODO: render a list of items in the cart */}
-        <h5>{count}x</h5>
+        <ul>
+        <div>
+          {cart.map((item, index) => (
+            <li key={index}>
+              <div>{item.name}</div>
+            </li>
+          ))}
+        </div>
+      </ul>
+
         <h3>Total Price: ${total}</h3>
-        <h3> {name} </h3>
       </div>
     </div>
   );
