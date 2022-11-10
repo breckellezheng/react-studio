@@ -16,7 +16,6 @@ import { useState } from "react";
 import { Button } from '@mui/material';
 
 const AddI = (props) => {
-  const [count, setCount] = useState(0);
   return (
         <Button onClick={() => props.clickFtn(props.item)} variant="contained" type="submit">
           Add To Cart

@@ -17,14 +17,14 @@ function App() {
   const [index, setIndex] = useState(0);
   const [total, setTotal] = useState(0);
   const [cart, setCart] = useState([]);
-  const [name, setName] = useState("");
+  const [name, setName] = useState([]);
 
   function handleClick(item) {
     const newCart = cart.concat({name});
     setTotal(total + item.price);
     setIndex(index + 1);
     setCart(newCart);
-    setName("");
+    setName(item.name);
   }
 
   return (
