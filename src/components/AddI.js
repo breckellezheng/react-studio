@@ -12,12 +12,11 @@
 //       );
 //     }
 import React from 'react';
-import { useState } from "react";
 import { Button } from '@mui/material';
 
 const AddI = (props) => {
   return (
-        <Button onClick={() => props.clickFtn(props.item)} variant="contained" type="submit">
+        <Button onClick={() => props.clickFtn(props.item)} variant="contained">
           Add To Cart
         </Button>
   );
